@@ -1,3 +1,4 @@
+<!-- eslint-disable -->
 <template>
   <BasicLayout>
     <template #wrapper>
@@ -125,7 +126,7 @@
                   @click="handleToDB(scope.row)"
                 >生成配置</el-button>
 
-     
+
                 <el-button
                   slot="reference"
                   type="text"
@@ -133,7 +134,7 @@
                   icon="el-icon-view"
                    @click="handleToApiFile(scope.row)"
                 >生成迁移脚本</el-button>
-                
+
                 <el-button
                   slot="reference"
                   type="text"
@@ -159,9 +160,14 @@
         <div class="el-dialog-container">
           <div class="tag-group">
             <!-- eslint-disable-next-line vue/valid-v-for -->
-            <el-tag v-for="(value, key) in preview.data" @click="codeChange(key)">
-              <template>
-                {{ key.substring(key.lastIndexOf('/')+1,key.indexOf('.go.template')) }}
+<!--            <el-tag v-for="value in preview.data" @click="codeChange(key)">-->
+<!--              <template>-->
+<!--                {{ key.substring(key.lastIndexOf('/')+1,key.indexOf('.go.template')) }}-->
+<!--              </template>-->
+<!--            </el-tag>-->
+            <el-tag v-for="value in preview.data" :key="value" @click="codeChange(value)">
+              <template v-slot:default>
+                {{ value.substring(value.lastIndexOf('/') + 1, value.indexOf('.go.template')) }}
               </template>
             </el-tag>
           </div>
@@ -189,6 +195,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import { listTable, previewTable, delTable, toDBTable, toProjectTableCheckRole, apiToFile } from '@/api/tools/gen'
 import importTable from './importTable'
 import { downLoadFile } from '@/utils/zipdownload'

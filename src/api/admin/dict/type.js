@@ -11,8 +11,9 @@ export function listType(query) {
 
 // 查询字典类型详细
 export function getType(dictId) {
+  console.log('/api/v1/dict/type/=>', dictId)
   return request({
-    url: '/api/v1/dict/type/' + dictId,
+    url: '/api/v1/dict/type/' + 0,
     method: 'get'
   })
 }

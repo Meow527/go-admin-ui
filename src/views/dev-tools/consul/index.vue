@@ -11,12 +11,12 @@
 </template>
 <script>
 export default {
-  name: 'Swagger',
+  name: 'Consul',
   components: {
   },
   data() {
     return {
-      src: process.env.VUE_APP_BASE_API + '/swagger/admin/index.html',
+      src: 'http://consul.mzjktech.com/ui/',
       height: document.documentElement.clientHeight - 94.5 + 'px;',
       loading: true
     }
